@@ -1,0 +1,155 @@
+:root {
+	--background-color: #192025;
+	--text-color: white;
+	--text-color-secondary: #aaa;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+	margin: 0px;
+}
+
+.main-content {
+	/* width: 100%; */
+	height: 100%;
+	display: flex;
+	margin: 0 .25rem;
+}
+
+.time-section {
+	flex-grow: 1;
+	/* forces them to have same size */
+	width: 1px;
+	display: flex;
+    flex-direction: column;
+}
+
+.time-section:not(:last-child) {
+	border-right: 1px solid #ddd;
+}
+
+.time-section .header {
+	height: 4rem;
+	padding: 1rem 1rem 0;
+}
+
+.time-section h2 {
+	margin: .5rem 0;
+}
+.time-section h3 {
+	margin: 0;
+	color: var(--text-color-secondary);
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
+.time-section .tasks {
+	/* height: 100%; */
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem .5rem 0;
+	gap: .5rem;
+}
+
+.time-section .tasks .task {
+	border-radius: 8px;
+	padding: .4rem .6rem;
+	/* cursor: grab; */
+	user-select: none;
+	display: flex;
+	align-items: center;
+    gap: .5rem;
+}
+.time-section .tasks .task:hover {
+	background-color: #80808080;
+}
+
+.time-section .tasks .task.dragging {
+	background-color: #2aa84680;
+}
+
+.time-section .tasks .task input[type="checkbox"] {
+	appearance: none;
+    width: 15px;
+    height: 14px;
+    border: 1px solid var(--text-color-secondary);
+    margin: 0;
+    border-radius: 3px;
+	cursor: pointer;
+}
+.time-section .tasks .task.checked {
+	opacity: .7;
+}
+.time-section .tasks .task.checked input[type="checkbox"] {
+	background-color: var(--text-color-secondary);
+}
+
+.time-section .tasks .task span.task-name {
+	/* flex-grow: 1; */
+	width: 100%;
+}
+
+.time-section .tasks .task-input {
+	background-color: transparent;
+	color: var(--text-color);
+	border-radius: 8px;
+	padding: .4rem .6rem .4rem 2rem;
+	border: 0;
+	outline: 0;
+}
+.time-section .tasks .task-input:focus {
+	outline: 1px solid #80808080;
+}
+
+.time-section .controls {
+	padding: 0 1rem 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+.time-section:not(:hover) .controls {
+	display: none;
+}
+
+.time-section button.time-control {
+    border: 1px solid transparent;
+    padding: .4rem .6rem;
+    background: #80808080;
+    color: white;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.time-section button.time-control:not([data-time="0"]) {
+	font-weight: 600;
+	font-family: unset;
+}
+.time-section button.time-control:hover {
+    background: #80808060;
+}
+
+
+
+
+
+
+.button-group {
+	display: flex;
+}
+
+.button-group > button:not(:first-child) {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+.button-group > button:not(:last-child) {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}

@@ -1,0 +1,161 @@
+:root {
+	--background-color: #192025;
+	--text-color: white;
+	--text-color-secondary: #aaa;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+	margin: 0px;
+}
+
+.main-content {
+	/* width: 100%; */
+	height: 100%;
+	display: flex;
+	margin: 0 .25vw;
+}
+
+.time-section {
+	flex-grow: 1;
+	/* forces them to have same size */
+	width: 1px;
+	display: flex;
+    flex-direction: column;
+}
+
+.time-section:not(:last-child) {
+	border-right: 1px solid #444;
+}
+
+.time-section .header {
+	height: 6vw;
+	padding: 1vw 1.2vw 0;
+}
+
+.time-section h2 {
+	margin: .5vw 0;
+	font-size: 2.5vw;
+}
+.time-section h2.highlight {
+	color: #cce;
+}
+.time-section h3 {
+	margin: 0;
+	color: var(--text-color-secondary);
+	font-weight: 500;
+	font-size: 1.5vw;
+}
+
+.time-section .tasks {
+	/* height: 100%; */
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding: .8vw .8vw 0;
+	gap: .5vw;
+}
+
+.time-section .tasks .task {
+	border-radius: .6vw;
+	padding: .4vw .6vw;
+	/* cursor: grab; */
+	user-select: none;
+	display: flex;
+	align-items: center;
+    gap: .5vw;
+	font-size: 1.5vw;
+}
+.time-section .tasks .task:hover {
+	background-color: #80808040;
+}
+
+.time-section .tasks .task.dragging {
+	background-color: #2aa84640;
+}
+
+.time-section .tasks .task input[type="checkbox"] {
+	appearance: none;
+    width: 1.6vw;
+    height: 1.5vw;
+    border: 1px solid var(--text-color-secondary);
+    margin: 0;
+    border-radius: .4vw;
+	cursor: pointer;
+}
+.time-section .tasks .task.checked,
+.time-section .tasks .task.dismissed {
+	opacity: .7;
+}
+.time-section .tasks .task.dismissed {
+	text-decoration: line-through;
+}
+.time-section .tasks .task.checked input[type="checkbox"] {
+	background-color: var(--text-color-secondary);
+}
+
+.time-section .tasks .task span.task-name {
+	/* flex-grow: 1; */
+	width: 100%;
+}
+
+.time-section .tasks .task-input {
+	background-color: transparent;
+	color: var(--text-color);
+	border-radius: .6vw;
+	padding: .4vw .6vw .4vw 2.5vw;
+	border: 0;
+	outline: 0;
+	font-size: 1.5vw;
+}
+.time-section .tasks .task-input:focus {
+	outline: 1px solid #80808080;
+}
+
+.time-section .controls {
+	padding: 0 1vw 1vw;
+	display: flex;
+	justify-content: center;
+}
+
+.time-section:not(:hover) .controls {
+	display: none;
+}
+
+.time-section button.time-control {
+    border: 0;
+    padding: .4vw .8vw;
+    background: #80808040;
+    color: white;
+	border-radius: .8vw;
+	cursor: pointer;
+	font-size: 1.5vw;
+}
+.time-section button.time-control:hover {
+    background: #80808020;
+}
+
+
+
+
+
+
+.button-group {
+	display: flex;
+}
+
+.button-group > button:not(:first-child) {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+.button-group > button:not(:last-child) {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
