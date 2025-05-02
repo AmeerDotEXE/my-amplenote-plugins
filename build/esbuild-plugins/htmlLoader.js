@@ -12,7 +12,7 @@ export const HtmlLoaderPlugin = {
         build.onResolve({ filter: /inline:.*\.html$/ }, args => {
             try {
                 return {
-                    path: path.resolve(args.resolveDir, args.path.substring(7)),
+                    path: args.resolveDir.split("my-amplenote-plugins\\")[1] + args.path.substring(8),//path.resolve(args.resolveDir, args.path.substring(7)),
                     namespace: 'inline-html'
                 };
             } catch (error) {
@@ -61,7 +61,7 @@ export async function inlineAssetsOfHTML(html, htmlPath, assetType) {
     const path = await import('path') || path;
     const esbuild = await import('esbuild') || esbuild;
     let esBuildOptionsPath = path.resolve(process.argv[2] || './build/', '../build/esbuild-options.js');
-    const {esbuildOptions} = await import(esBuildOptionsPath) || {esbuildOptions};
+    const {esbuildOptions} = await import("file://"+esBuildOptionsPath) || {esbuildOptions};
 
     // Actual Code
     const watchFiles = [];

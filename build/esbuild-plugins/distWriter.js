@@ -9,8 +9,8 @@ export const DistWriterPlugin = {
     name: 'DistWriterPlugin',
     setup(build) {
         let count = 0;
-        const targetFolderName = build.initialOptions.entryPoints[0].split('/').slice(-2, -1)[0];
-        const outFolderPath = build.initialOptions.entryPoints[0].split('/').slice(0, -1).join('/')
+        const targetFolderName = build.initialOptions.entryPoints[0].split("\\").join('/').split('/').slice(-2, -1)[0];
+        const outFolderPath = build.initialOptions.entryPoints[0].split("\\").join('/').split('/').slice(0, -1).join('/')
             + '/../' + build.initialOptions.outdir;
         build.onEnd(async result => {
             try {
@@ -23,24 +23,24 @@ export const DistWriterPlugin = {
             let pluginJSResult = '';
             for (const outFile of result.outputFiles) {
                 let result = outFile.text;
-                if (outFile.path.split('/').pop() === 'plugin.js') {
+                if (outFile.path.split("\\").join('/').split('/').pop() === 'plugin.js') {
                     result = await handleProcessingPluginJS(result);
                     pluginJSResult = result;
                 }
-                else if (outFile.path.split('/').pop() === 'plugin.about.js') {
+                else if (outFile.path.split("\\").join('/').split('/').pop() === 'plugin.about.js') {
                     result = await handleProcessingPluginAboutJS(result, pluginJSResult);
                     outFile.path = outFile.path.replace('plugin.about.js', 'out.plugin.about.md');
                 }
-                else if (outFile.path.split('/').pop() === 'plugin.about.js.map') {
+                else if (outFile.path.split("\\").join('/').split('/').pop() === 'plugin.about.js.map') {
                     continue;
                 }
-                const distDir = outFile.path.split('/').slice(0, -1).join('/');
+                const distDir = outFile.path.split("\\").join('/').split('/').slice(0, -1).join('/');
                 try {
                     await fs.access(distDir);
                 } catch {
                     await fs.mkdir(distDir, {recursive: true});
                 }
-                await fs.writeFile(`${distDir}/out.${outFile.path.split('/').pop()}`, result);
+                await fs.writeFile(`${distDir}/out.${outFile.path.split("\\").join('/').split('/').pop()}`, result);
             }
             console.log(count === 0 ? `[${new Date()}] Build successful - ${targetFolderName}.` : `[${new Date()}] Rebuild successful - ${targetFolderName}.`);
             count++;
@@ -56,7 +56,6 @@ export const DistWriterPlugin = {
             result = result.replace(/^\s+var import_.+= (?:__toESM\()?__require\(".+"\).*;/gm, "");
             result = "/***\n * Source Code: " + repositoryLink + "\n * Author: " + author +
                 "\n * Build: " + process.env.NODE_ENV +
-                "\n * Character Count: " + result.length + ` (${(result.length/1000000).toPrecision(2)} M)` +
                 "\n * Target Folder: " + targetFolderName + "\n ***/\n" + result;
             return result;
         }

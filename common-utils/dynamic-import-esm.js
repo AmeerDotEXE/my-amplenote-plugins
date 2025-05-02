@@ -47,10 +47,10 @@ const dynamicImportESM = async (pkg, pkgVersion = null) => {
 
 function getBasePackage(pkg) {
     if (pkg.startsWith('@')) {
-        const [scope, name] = pkg.split('/');
+        const [scope, name] = pkg.split("\\").join('/').split('/');
         return `${scope}/${name}`;
     }
-    return pkg.split('/')[0];
+    return pkg.split("\\").join('/').split('/')[0];
 }
 
 function resolvePackageVersion(pkg, pkgVersion) {
@@ -62,10 +62,10 @@ function resolvePackageVersion(pkg, pkgVersion) {
 function buildCDNUrl(cdn, pkg, version) {
     let folders = [];
     if(pkg.startsWith('@')) {
-        [,, ...folders] = pkg.split('/');
+        [,, ...folders] = pkg.split("\\").join('/').split('/');
     }
     else {
-        [, ...folders] = pkg.split('/');
+        [, ...folders] = pkg.split("\\").join('/').split('/');
     }
     const basePkg = getBasePackage(pkg);
     const versionString = version !== 'latest' ? `@${version}` : '';

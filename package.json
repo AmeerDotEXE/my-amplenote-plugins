@@ -1,33 +1,30 @@
 {
   "name": "amplenote-plugin-dev-env",
-  "author": "debajandhar12",
+  "author": "AmeerDotEXE",
   "version": "1.0.0",
   "type": "module",
-  "repository": "https://github.com/debanjandhar12/my-amplenote-plugins-v2",
+  "repository": "https://github.com/AmeerDotEXE/my-amplenote-plugins",
   "dependencies": {
-    "@debanjandhar12/markmap-lib": "0.17.0-mod.3",
-    "@debanjandhar12/markmap-toolbar": "0.17.0-mod.3",
-    "@debanjandhar12/markmap-view": "0.17.0-mod.3",
+    "d3-svg-to-png": "^0.3.1",
     "date-fns": "^3.6.0",
+    "fparser": "^3.1.0",
     "lodash-es": "^4.17.21",
     "luxon": "^3.4.4",
     "markdown-escape": "^2.0.0",
-    "@omnivore-app/api": "^1.0.4",
     "markdown-it": "^14.1.0",
+    "nanoid": "^5.0.7",
     "remark-gfm": "4.0.0",
     "remark-parse": "11.0.0",
     "unified": "11.0.0",
     "unist-util-visit": "^5.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "d3-svg-to-png": "^0.3.1",
-    "chart.js": "^4.4.3",
-    "fparser": "^3.1.0",
-    "nanoid": "^5.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
+    "core-js": "^3.38.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "cross-fetch": "^4.0.0",
     "dotenv": "^16.0.3",
     "esbuild": "0.23.1",
@@ -39,14 +36,13 @@
     "jest-environment-jsdom": "^29.5.0",
     "jsdom": "^24.1.0",
     "make-synchronous": "^1.0.0",
-    "playwright": "^1.47.2",
-    "core-js": "^3.38.1"
+    "playwright": "^1.47.2"
   },
   "scripts": {
-    "test": "jest --testPathPattern=src-mindmap",
-    "test:watch": "jest --testPathPattern=src-mindmap --watch",
-    "build:prod": "NODE_ENV=production node esbuild.js $(pwd)/src-mindmap",
-    "build:dev": "node esbuild.js $(pwd)/src-mindmap --watch --server"
+    "test": "jest --testPathPattern=src-longterm",
+    "test:watch": "jest --testPathPattern=src-longterm --watch",
+    "build:prod": "cross-env NODE_ENV=production node esbuild.js ./src-longterm",
+    "build:dev": "node esbuild.js ./src-longterm --watch --server"
   },
   "testEnvironment": "jsdom"
 }

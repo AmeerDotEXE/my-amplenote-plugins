@@ -1,13 +1,9 @@
-# Amplenote Plugin Template
+# Amplenote Plugin Dev Enviorment
 
-This is a template / dev env for my Amplenote plugins (heavily customized). It is meant to host all of my amplenote plugins in a single workspace. However, if you wish to fork this repo and use it for your own plugins, feel free to do so.
+This is a dev env for my Amplenote plugins. It is meant to host all of my amplenote plugins in a single workspace. However, if you wish to fork this repo and use it for your own plugins, please use the original template i used for this development environment listed down below.
 
 Current plugin list:
-- [x] Amplenote Omnivore Plugin
-- [x] Amplenote Charts Plugin 
-- [x] Amplenote Mindmap Plugin
-- [x] Amplenote Text2Dia Plugin
-- [x] Amplenote Autolink Plugin
+- [x] Long-term View Plugin
 
 # Building, Testing, and Running Plugins
 
@@ -42,35 +38,14 @@ Current plugin list:
   npm run test:watch
   ```
 
-Note: If you encounter a jsdom error, install it with:
-```
-npm install -D jest-environment-jsdom
-```
 
 ## Development Environment Features
 
-#### 1. HTML Embedding Support
-- When running `npm run dev`, HTML files in the target folder's `embed` directory are built and served at `http://localhost:3000/`. This allows testing embed pages in isolation.
-- The build command can import these HTML files as strings in your `plugin.js`. Then, you can return them inside your renderEmbed function.
+Im using an older version of debanjandhar12's template you can find the up-to-date template in his repo: 
+https://github.com/debanjandhar12/my-amplenote-plugins-v2/
 
-#### 2. Automatic Plugin Page Markdown Generation
-- Running `npm run build` will auto-generate plugin page markdown if the target folder contains a `plugin.about.js` file with the following structure:
-  ```javascript
-  export default {
-    name: 'Amplenote Omnivore Plugin',
-    description: 'A plugin to sync Amplenote with omnivore',
-    icon: 'sync_alt',
-    instructions: `
-      1. Install the plugin.
-      2. Go to the plugin settings and configure the settings.
-      3. Enjoy!
-    `,
-    settings: ["Setting 1", "Setting 2"],
-    version: '1.0.0',
-    body: `
-      # Amplenote Omnivore Plugin
+#### Additions
+- fixed pathing to support windows platfrom
 
-      This plugin syncs Amplenote with omnivore.
-    `
-  };
-  ```
+## Credits
+- debanjandhar12 - plugin-template
