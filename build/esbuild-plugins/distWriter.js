@@ -26,6 +26,16 @@ export const DistWriterPlugin = {
                 if (outFile.path.split("\\").join('/').split('/').pop() === 'plugin.js') {
                     result = await handleProcessingPluginJS(result);
                     pluginJSResult = result;
+                    
+                    if (process.env.NODE_ENV === "production") {
+                        const compiledDir = outFile.path.split("\\").join('/').split('/').slice(0, -1).join('/').replace('dist', 'compiled');
+                        try {
+                            await fs.access(compiledDir);
+                        } catch {
+                            await fs.mkdir(compiledDir, {recursive: true});
+                        }
+                        await fs.writeFile(`${compiledDir}/out.${targetFolderName}.js`, result);
+                    }
                 }
                 else if (outFile.path.split("\\").join('/').split('/').pop() === 'plugin.about.js') {
                     result = await handleProcessingPluginAboutJS(result, pluginJSResult);
