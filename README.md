@@ -4,6 +4,7 @@ This is a dev env for my Amplenote plugins. It is meant to host all of my amplen
 
 Current plugin list:
 - [x] Long-term View Plugin
+- [x] Personal CRM Plugin
 
 # Building, Testing, and Running Plugins
 
