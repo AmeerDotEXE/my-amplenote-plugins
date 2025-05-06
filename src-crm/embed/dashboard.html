@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="./widget.css"></link>
+</head>
+<body>
+	<div class="main-content">
+		<div class="widget menu">
+			<div class="section stats">
+				<div class="stat" id="reminders-stats">1 / 6</div>
+				<div class="stat-label">reminders done</div>
+			</div>
+			<div class="stats-duration">
+				2 days left until end of week
+			</div>
+
+			<div class="section add-menu">
+				<div class="add-menu-content">
+					<div class="section search-input">
+						<input type="text" id="add-who" placeholder="Who">
+						<!-- auto complete user -->
+						<div class="selected-user custom" id="add-who-selected">Person Name</div>
+						<i class="material-icons custom" id="add-who-unselect">close</i>
+					</div>
+					<div class="divider"></div>
+					<div class="section search-input" style="flex-grow: 1;">
+						<textarea id="add-note" placeholder="Your note"></textarea>
+					</div>
+				</div>
+
+				<div class="add-menu-type" data-type="interaction">
+					<div class="divider"></div>
+					<div class="add-menu-type-title">How did you catch up?</div>
+					<div class="add-menu-type-options">
+						<div class="add-menu-type-option">Call</div>
+						<div class="add-menu-type-option">Text</div>
+						<div class="add-menu-type-option">Email</div>
+						<div class="add-menu-type-option">Met in person</div>
+						<div class="add-menu-type-option">
+							<i class="material-icons">more_horiz</i>
+						</div>
+						<div class="add-menu-type-custom">
+							<div class="section search-input">
+								<input type="text" placeholder="...">
+								<i class="material-icons">close</i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="add-menu-type" data-type="reminder">
+					<div class="divider"></div>
+					<div class="add-menu-type-title">Set reminder?</div>
+					<div class="add-menu-type-options">
+						<div class="add-menu-type-option">Today</div>
+						<div class="add-menu-type-option">Tomorrow</div>
+						<div class="add-menu-type-option">Next week</div>
+						<div class="add-menu-type-option">Next month</div>
+						<div class="add-menu-type-option">
+							<i class="material-icons">more_horiz</i>
+						</div>
+						<div class="add-menu-type-custom">
+							<div class="section search-input">
+								<input type="date">
+								<i class="material-icons">close</i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="add-menu-buttons">
+					<div class="grouped-options">
+						<i class="material-icons grouped-option active" data-type="note">description</i>
+						<i class="material-icons grouped-option" data-type="interaction">chat_bubble</i>
+						<i class="material-icons grouped-option" data-type="reminder">calendar_today</i>
+					</div>
+
+					<button class="action-button" id="add-menu-button">Add</button>
+				</div>
+			</div>
+		</div>
+		<div class="widget">
+			<div class="tabs" id="reminder-tabs">
+				<div class="tab-btn">Missed</div>
+				<div class="tab-btn active">This week</div>
+				<div class="tab-btn">Upcoming</div>
+			</div>
+			<div class="divider"></div>
+			<div class="people-list" id="reminders"></div>
+		</div>
+		<div class="widget menu">
+			<div class="section search-input">
+				<input type="text" id="search-relationships" placeholder="Search Relationships...">
+				<i class="material-icons" id="search-rs-filter">filter_alt</i>
+			</div>
+			<div class="people-list" id="relationships"></div>
+		</div>
+	</div>
+	
+	<script src="./dashboard.js"></script>
+</body>
+</html>
