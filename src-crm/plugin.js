@@ -1,6 +1,9 @@
 import { createOnEmbedCallHandler } from "../common-utils/embed-comunication";
 import { addWindowVariableToHtmlString } from "../common-utils/embed-helpers";
-import { PERSON_TAG_SETTING_DEFAULT, START_OF_WEEK_SETTING, START_OF_WEEK_SETTING_DEFAULT } from "./constants";
+import {
+	PERSON_TAG_SETTING, PERSON_TAG_SETTING_DEFAULT,
+	START_OF_WEEK_SETTING, START_OF_WEEK_SETTING_DEFAULT
+} from "./constants";
 import { _noteContent, _sectionContent } from "./lib/amplenote_rw";
 import { _sectionsFromMarkdown, _objectTableFromMarkdown, _sectionFromHeadingText, _markdownFromTableRow } from "./lib/markdown";
 import dashboardHTML from "inline:./embed/dashboard.html";

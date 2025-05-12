@@ -38,7 +38,7 @@
   });
 
   // src-crm/constants.js
-  var PERSON_TAG_SETTING_DEFAULT = "person", START_OF_WEEK_SETTING_DEFAULT = "0", PERSON_TAG_SETTING2 = `People's Tag (default: ${PERSON_TAG_SETTING_DEFAULT})`, START_OF_WEEK_SETTING = `Start Of Week (default: ${START_OF_WEEK_SETTING_DEFAULT})`;
+  var PERSON_TAG_SETTING_DEFAULT = "person", START_OF_WEEK_SETTING_DEFAULT = "0", PERSON_TAG_SETTING = `People's Tag (default: ${PERSON_TAG_SETTING_DEFAULT})`, START_OF_WEEK_SETTING = `Start Of Week (default: ${START_OF_WEEK_SETTING_DEFAULT})`;
 
   // src-crm/lib/markdown.js
   function _sectionFromHeadingText(headingText, { level = 1 } = {}) {

@@ -39,10 +39,10 @@
     "playwright": "^1.47.2"
   },
   "scripts": {
-    "test": "jest --testPathPattern=src-crm",
-    "test:watch": "jest --testPathPattern=src-crm --watch",
-    "build:prod": "cross-env NODE_ENV=production node esbuild.js ./src-crm",
-    "build:dev": "node esbuild.js ./src-crm --watch --server"
+    "test": "jest --testPathPattern=src-supertags",
+    "test:watch": "jest --testPathPattern=src-supertags --watch",
+    "build:prod": "cross-env NODE_ENV=production node esbuild.js ./src-supertags",
+    "build:dev": "node esbuild.js ./src-supertags --watch --server"
   },
   "testEnvironment": "jsdom"
 }

@@ -7,7 +7,7 @@ export function showEmbedLoader() {
       top: 0;
       left: 0;
       width: 100%;
-      /*height: 100%;*/
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 9998;
       animation: fadeIn 0.3s ease-in-out;
@@ -18,8 +18,9 @@ export function showEmbedLoader() {
     loader.id = 'embed-loader';
     loader.style.cssText = `
       position: fixed;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, 0%);
+      transform: translate(-50%, -50%);
       width: 50px;
       height: 50px;
       border: 5px solid #f3f3f3;
